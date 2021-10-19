@@ -16,7 +16,8 @@ public class FormularioCrud extends JFrame{
     public JLabel edad;
     public JButton modificarButton;
     public JTextField idText;
-
+    public JTable table1;
+    public JButton ImprimirTabla;
 
 
 }
