@@ -1,9 +1,13 @@
 package com.carlos.crudmysql.modelo;
 
+import com.carlos.crudmysql.vista.FormularioCrud;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ConsultasMysql extends ConeccionMysql {
 
@@ -125,6 +129,36 @@ public class ConsultasMysql extends ConeccionMysql {
         }
         return false;
     }
+
+    public List<Object[]> listar() throws SQLException {
+
+        FormularioCrud formulario = new FormularioCrud();
+        Connection con = getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "select * from persona";
+        List<Object[]> lista = new ArrayList();
+
+        try {
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Object[] row = {rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido"), rs.getInt("edad")};
+                lista.add(row);
+                formulario.model.addRow(row);
+            }
+
+            return lista;
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+
+        return null;
+
+    }
+
 
 
 }

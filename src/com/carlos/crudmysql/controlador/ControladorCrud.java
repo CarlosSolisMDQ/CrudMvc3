@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ControladorCrud implements ActionListener {
 
@@ -28,6 +29,8 @@ public class ControladorCrud implements ActionListener {
         this.formulario.modificarButton.addActionListener(this);
         this.formulario.buscarButton.addActionListener(this);
         this.formulario.limpiarButton.addActionListener(this);
+
+        this.formulario.imprimirButton.addActionListener(this);
     }
 
     @Override
@@ -106,6 +109,16 @@ public class ControladorCrud implements ActionListener {
         } else if(formulario.limpiarButton == e.getSource()){
             limpiar();
             //System.out.println("entro en limpiar");
+        } else if(formulario.imprimirButton == e.getSource()){
+            try {
+                formulario.model.setNumRows(0);
+                formulario.lista = new ArrayList<Object[]>(consulta.listar());
+                //System.out.println(formulario.lista);
+                formulario.pintarLaTabla(formulario.lista);
+            } catch (SQLException ex) {
+                ex.getMessage();
+            }
+
         }
 
     }
@@ -123,7 +136,7 @@ public class ControladorCrud implements ActionListener {
         formulario.setTitle("Personas");
         formulario.setLocationRelativeTo(null);
         formulario.setResizable(false);
-        formulario.setSize(600,400);
+        formulario.setSize(680,400);
         formulario.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
