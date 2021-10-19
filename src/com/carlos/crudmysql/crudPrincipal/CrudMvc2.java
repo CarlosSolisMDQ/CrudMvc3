@@ -14,12 +14,12 @@ public class CrudMvc2 {
         FormularioCrud formulario = new FormularioCrud();
         ConsultasMysql consultas = new ConsultasMysql();
         TablaFormulario tabla = new TablaFormulario();
-        ControladorCrud controlador = new ControladorCrud(persona, formulario, consultas, tabla);
+        ControladorCrud controlador = new ControladorCrud(persona, formulario, consultas);
 
 
         controlador.iniciar();
-        controlador.iniciarTabla();
+
         formulario.setVisible(true);
-        tabla.setVisible(true);
+
     }
 }

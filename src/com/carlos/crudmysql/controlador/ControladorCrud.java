@@ -18,7 +18,7 @@ public class ControladorCrud implements ActionListener {
     private TablaFormulario tabla;
 
 
-    public ControladorCrud(Persona persona, FormularioCrud formulario, ConsultasMysql consulta, TablaFormulario tabla) {
+    public ControladorCrud(Persona persona, FormularioCrud formulario, ConsultasMysql consulta) {
         this.persona = persona;
         this.formulario = formulario;
         this.consulta = consulta;
@@ -127,19 +127,7 @@ public class ControladorCrud implements ActionListener {
         formulario.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
-    public void iniciarTabla(){
-        tabla.setContentPane(tabla.mainPanel);
-        tabla.setTitle("tabla de mysql");
-        tabla.setLocationRelativeTo(null);
-        tabla.setResizable(false);
 
-        tabla.setSize(600,400);
-        tabla.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-
-
-
-    }
 
 
 }
