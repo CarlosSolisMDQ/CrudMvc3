@@ -3,7 +3,6 @@ package com.carlos.crudmysql.controlador;
 import com.carlos.crudmysql.modelo.ConsultasMysql;
 import com.carlos.crudmysql.modelo.Persona;
 import com.carlos.crudmysql.vista.FormularioCrud;
-import com.carlos.crudmysql.vista.TablaFormulario;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -16,20 +15,19 @@ public class ControladorCrud implements ActionListener {
     private Persona persona;
     private FormularioCrud formulario;
     private ConsultasMysql consulta;
-    private TablaFormulario tabla;
+
 
 
     public ControladorCrud(Persona persona, FormularioCrud formulario, ConsultasMysql consulta) {
         this.persona = persona;
         this.formulario = formulario;
         this.consulta = consulta;
-        this.tabla = tabla;
+
         this.formulario.registrarButton.addActionListener(this);
         this.formulario.borrarButton.addActionListener(this);
         this.formulario.modificarButton.addActionListener(this);
         this.formulario.buscarButton.addActionListener(this);
         this.formulario.limpiarButton.addActionListener(this);
-
         this.formulario.imprimirButton.addActionListener(this);
     }
 
@@ -108,7 +106,7 @@ public class ControladorCrud implements ActionListener {
 
         } else if(formulario.limpiarButton == e.getSource()){
             limpiar();
-            //System.out.println("entro en limpiar");
+
         } else if(formulario.imprimirButton == e.getSource()){
             try {
                 formulario.model.setNumRows(0);
@@ -124,7 +122,7 @@ public class ControladorCrud implements ActionListener {
     }
 
     public void limpiar(){
-        //System.out.println("entro en la funcion");
+
         formulario.nombreText.setText("");
         formulario.edadText.setText("");
         formulario.apellidoText.setText("");
@@ -133,14 +131,13 @@ public class ControladorCrud implements ActionListener {
 
     public void iniciar(){
         formulario.setContentPane(formulario.mainPanel);
-        formulario.setTitle("Personas");
-        formulario.setLocationRelativeTo(null);
+        formulario.setTitle("Base de datos de Personas");
+
         formulario.setResizable(false);
         formulario.setSize(680,400);
+        formulario.pack();
+        formulario.setLocationRelativeTo(null);
         formulario.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
-
-
-
 
 }

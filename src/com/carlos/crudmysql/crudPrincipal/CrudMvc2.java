@@ -4,7 +4,6 @@ import com.carlos.crudmysql.modelo.ConsultasMysql;
 import com.carlos.crudmysql.controlador.ControladorCrud;
 import com.carlos.crudmysql.modelo.Persona;
 import com.carlos.crudmysql.vista.FormularioCrud;
-import com.carlos.crudmysql.vista.TablaFormulario;
 
 public class CrudMvc2 {
 

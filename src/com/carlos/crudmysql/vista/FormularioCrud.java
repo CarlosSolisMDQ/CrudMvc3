@@ -27,6 +27,7 @@ public class FormularioCrud extends JFrame{
 
     public JButton imprimirButton;
     private JTable table1;
+    private JLabel idLabel;
 
 
     private void createUIComponents() {
